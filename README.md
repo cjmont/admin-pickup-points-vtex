@@ -1,4 +1,4 @@
-# Odoo AddPickupPoints Module README
+# Odoo AddPickupPoints Module for Vtex Ecommerce
 
 ## Overview
 
