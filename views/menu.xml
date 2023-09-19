@@ -1,0 +1,14 @@
+<odoo>
+	
+	<menuitem id="menu_store_root" name="Tiendas"
+	          sequence="10" web_icon="admin_pickup_points,static/description/icon.png"/>
+	<menuitem id="menu_add_pickup_points" name="Pickup Points" parent="menu_store_root" sequence="0"
+	          groups="base.group_user"/>
+	
+	<menuitem id="menu_add_pickup_points_Activities" name="Actividades" parent="menu_add_pickup_points"
+	          sequence="0"/>
+	<menuitem id="menu_add_pickup_points_new" name="Tiendas" parent="menu_add_pickup_points"
+	          action="action_add_pickup_points"
+	          sequence="1"/>
+
+</odoo>

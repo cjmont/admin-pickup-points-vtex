@@ -1,0 +1,131 @@
+<odoo>
+	
+	<!-- add AddPickupPoints tree view -->
+	<record model="ir.ui.view" id="view_add_pickup_points_tree">
+		<field name="name">add.pickup_points.tree</field>
+		<field name="model">add.pickup_points</field>
+		<field name="priority">1</field>
+		<field name="arch" type="xml">
+			<tree string="Agregar tiendas a Vtex">
+				<field name="store_id" string="ID"/>
+				<field name="store_name" string="Tienda"/>
+				<field name="store_city" string="Ciudad"/>
+				<field name="store_formatted_address" string="Dirección"/>
+			</tree>
+		</field>
+	</record>
+	
+	<!-- add AddPickupPoints action -->
+	<record model="ir.actions.act_window" id="action_add_pickup_points">
+		<field name="name">Agregar Tienda</field>
+		<field name="res_model">add.pickup_points</field>
+		<field name="view_mode">tree,form</field>
+		<field name="help" type="html">
+			<p class="oe_view_nocontent_create">
+				Click en CREAR (y no en Guardar) para agregar una nueva tienda.
+			</p>
+		</field>
+	</record>
+	
+	
+	<!-- view to add new pickup points -->
+	<record model="ir.ui.view" id="view_add_pickup_points_form">
+		<field name="name">add.pickup_points.form</field>
+		<field name="model">add.pickup_points</field>
+		<field name="priority">1</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet string="Stores Odoo From View To Vtex">
+					<group col="3">
+						<group name="store_id_group" string="Datos de la Tienda">
+							<field name="store_id" modifiers="{&quot;required&quot;: true}"/>
+							<field name="store_name"/>
+							<field name="store_description"/>
+							<field name="store_formatted_address"/>
+							<field name="store_address_postal_code"/>
+							<field name="store_city"/>
+							<field name="store_state"/>
+						</group>
+						
+						<group name="store_address_location" string="Ubicación">
+							<field name="store_address_street"/>
+							<field name="store_address_complement"/>
+							<field name="store_address_location_latitude"/>
+							<field name="store_address_location_longitude"/>
+							<field name="store_tags_label"/>
+							<field name="store_is_active"/>
+						</group>
+						
+						<group string="Foto de la Tiendas" width="300" height="400">
+							<field name="store_image" widget="image"/>
+						</group>
+						
+						
+						<notebook>
+							<page id="lunes_tab" name="lunes_tab" string="Horario Lunes"
+							      modifiers="{&quot;invisible&quot;: [[&quot;move_type&quot;, &quot;=&quot;, &quot;entry&quot;]]}">
+								<group>
+									<field name="store_business_hours_day_of_week_1"/>
+									<field name="store_openingTime_1" on_change="1"/>
+									<!-- remove year and month from date_time -->
+									<field name="store_closingTime_1" on_change="1"/>
+								</group>
+							</page>
+							<page id="martes_tab" name="martes_tab" string="Horario Martes"
+							      modifiers="{&quot;invisible&quot;: [[&quot;move_type&quot;, &quot;=&quot;, &quot;entry&quot;]]}">
+								<group>
+									<field name="store_business_hours_day_of_week_2"/>
+									<field name="store_openingTime_2" on_change="1"/>
+									<field name="store_closingTime_2" on_change="1"/>
+								</group>
+							</page>
+							<page id="miercoles_tab" name="miercoles_tab" string="Horario Miercoles"
+							      modifiers="{&quot;invisible&quot;: [[&quot;move_type&quot;, &quot;=&quot;, &quot;entry&quot;]]}">
+								<group>
+									<field name="store_business_hours_day_of_week_3"/>
+									<field name="store_openingTime_3" on_change="1"/>
+									<field name="store_closingTime_3" on_change="1"/>
+								</group>
+							</page>
+							<page id="jueves_tab" name="jueves_tab" string="Horario Jueves"
+							      modifiers="{&quot;invisible&quot;: [[&quot;move_type&quot;, &quot;=&quot;, &quot;entry&quot;]]}">
+								<group>
+									<field name="store_business_hours_day_of_week_4"/>
+									<field name="store_openingTime_4" on_change="1"/>
+									<field name="store_closingTime_4" on_change="1"/>
+								</group>
+							</page>
+							<page id="viernes_tab" name="viernes_tab" string="Horario Viernes"
+							      modifiers="{&quot;invisible&quot;: [[&quot;move_type&quot;, &quot;=&quot;, &quot;entry&quot;]]}">
+								<group>
+									<field name="store_business_hours_day_of_week_5"/>
+									<field name="store_openingTime_5" on_change="1"/>
+									<field name="store_closingTime_5" on_change="1"/>
+								</group>
+							</page>
+							<page id="sabado_tab" name="sabado_tab" string="Horario Sabado"
+							      modifiers="{&quot;invisible&quot;: [[&quot;move_type&quot;, &quot;=&quot;, &quot;entry&quot;]]}">
+								<group>
+									<field name="store_business_hours_day_of_week_6"/>
+									<field name="store_openingTime_6" on_change="1"/>
+									<field name="store_closingTime_6" on_change="1"/>
+								</group>
+							</page>
+							<page id="domingo_tab" name="domingo_tab" string="Horario Domingo"
+							      modifiers="{&quot;invisible&quot;: [[&quot;move_type&quot;, &quot;=&quot;, &quot;entry&quot;]]}">
+								<group>
+									<field name="store_business_hours_day_of_week_0"/>
+									<field name="store_openingTime_0" on_change="1"/>
+									<field name="store_closingTime_0" on_change="1"/>
+								</group>
+							</page>
+						</notebook>
+						
+						<separator/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+</odoo>
