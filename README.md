@@ -1,0 +1,1 @@
+# admin-pickup-points-vtex
